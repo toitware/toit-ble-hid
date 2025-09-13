@@ -8,7 +8,7 @@ Low Energy (BLE).
 
 ## Example
 
-```
+```toit
 import ble-hid
 import ble-hid.keys
 import gpio
