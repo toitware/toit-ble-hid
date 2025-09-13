@@ -1,4 +1,4 @@
-# toit-ble-hid
+# BLE HID
 
 A BLE HID (Human Interface Device) driver.
 
