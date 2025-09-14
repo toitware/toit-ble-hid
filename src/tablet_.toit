@@ -55,10 +55,19 @@ class Tablet extends HidDevice:
   last-y_/int := -1
   last-buttons_/int := -1
 
-  constructor --name/string:
+  /**
+  Creates a tablet device.
+
+  The $name is typically shown on the host when listing connected devices and must
+    be relatively short (preferably <= 10 characters).
+
+  The $appearance is one of the values in the 'appearances' library. See
+    $appearances.TABLET for an example.
+  */
+  constructor --name/string --appearance/ByteArray=appearances.TABLET:
     super.from-sub_
         --name=name
-        --appearance=appearances.TABLET
+        --appearance=appearance
         --report-map=HID-REPORT-MAP_
         --report-id=REPORT-ID_
 

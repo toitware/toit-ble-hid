@@ -61,12 +61,21 @@ class ConsumerControl extends HidDevice:
     0xC0               // End Collection.
   ]
 
-  constructor --name/string:
+  /**
+  Creates a consumer control device.
+
+  The $name is typically shown on the host when listing connected devices and must
+    be relatively short (preferably <= 10 characters).
+
+  The $appearance is one of the values in the 'appearances' library. See
+    $appearances.PRESENTATION-REMOTE for an example.
+  */
+  // TODO(floitsch): the presentation remote doesn't seem to have an icon on
+  // Linux and Android. Maybe we need to replace it with a different one.
+  constructor --name/string --appearance/ByteArray=appearances.PRESENTATION-REMOTE:
     super.from-sub_
         --name=name
-        // TODO(floitsch): the presentation remote doesn't seem to have an icon on
-        // Linux and Android. Maybe we need to replace it with a different one.
-        --appearance=appearances.PRESENTATION-REMOTE
+        --appearance=appearance
         --report-map=HID-REPORT-MAP_
         --report-id=REPORT-ID_
 

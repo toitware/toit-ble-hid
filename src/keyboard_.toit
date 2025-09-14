@@ -48,10 +48,19 @@ class Keyboard extends HidDevice:
     0xC0               // End Collection.
   ]
 
-  constructor --name/string:
+  /**
+  Creates a keyboard device.
+
+  The $name is typically shown on the host when listing connected devices and must
+    be relatively short (preferably <= 10 characters).
+
+  The $appearance is one of the values in the 'appearances' library. See
+    $appearances.KEYBOARD for an example.
+  */
+  constructor --name/string --appearance/ByteArray=appearances.KEYBOARD:
     super.from-sub_
         --name=name
-        --appearance=appearances.KEYBOARD
+        --appearance=appearance
         --report-map=HID-REPORT-MAP_
         --report-id=REPORT-ID_
 
