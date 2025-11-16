@@ -2,4 +2,4 @@ name: ble-hid
 description: a BLE HID (Human Interface Device) driver.
 
 environment:
-  sdk: ^2.0.0-alpha.188.1
+  sdk: ^2.0.0-alpha.189
