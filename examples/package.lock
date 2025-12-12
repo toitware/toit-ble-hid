@@ -1,0 +1,5 @@
+prefixes:
+  ble-hid: ..
+packages:
+  ..:
+    path: ..
