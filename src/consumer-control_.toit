@@ -23,6 +23,8 @@ main:
   pin := gpio.Pin --input 0
   remote := ble-hid.ConsumerControl --name="Muter"
   while true:
+    // The 'boot' button is connected to GPIO 0 which is a strap pin,
+    // pulled high. When pressed, it goes low.
     pin.wait-for 0
     remote.mute
     pin.wait-for 1
@@ -87,7 +89,7 @@ class ConsumerControl extends HidDevice:
   If $release is true, a key release event is sent after $release-delay
       (default 10ms).
   */
-  report code/int --release/bool=false --release-delay/Duration?=null:
+  report code/int --release/bool=false --release-delay/Duration?=null -> none:
     report-characteristic_.write #[code & 0xFF, (code >> 8) & 0xFF]
     if release:
       if not release-delay:

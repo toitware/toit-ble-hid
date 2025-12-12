@@ -8,5 +8,5 @@ main:
   remote := ble-hid.ConsumerControl --name="Capture"
 
   while true:
-    sleep --ms=10000
+    sleep (Duration --s=10)
     remote.volume-up

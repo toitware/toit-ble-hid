@@ -20,6 +20,8 @@ main:
   boot-button := gpio.Pin 0 --input
 
   print "Waiting for button press"
+  // The 'boot' button is connected to GPIO 0 which is a strap pin,
+  // pulled high. When pressed, it goes low.
   boot-button.wait-for 0
 
   // Send key presses, assuming a QWERTY layout.

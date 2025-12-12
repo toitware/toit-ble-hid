@@ -69,7 +69,7 @@ class Keyboard extends HidDevice:
 
   Waits $delay after report.
   */
-  type-qwerty text/string --delay/Duration=(Duration --ms=5):
+  type-qwerty text/string --delay/Duration=(Duration --ms=5) -> none:
     old-key := -1
     text.do: | c/int? |
       code := map-ascii-to-qwerty_ c
@@ -91,7 +91,7 @@ class Keyboard extends HidDevice:
 
   If $delay is provided, waits for that duration before releasing the key.
   */
-  press
+  press -> none
       --left-control/bool=false
       --left-shift/bool=false
       --left-alt/bool=false
@@ -183,7 +183,7 @@ class Keyboard extends HidDevice:
 
   See the 'keys' library ($keys.A and similar) for codes.
   */
-  report
+  report -> none
       --left-control/bool=false
       --left-shift/bool=false
       --left-alt/bool=false

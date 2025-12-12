@@ -10,6 +10,8 @@ main:
 
   boot-button := gpio.Pin 0 --input
   while true:
+    // The 'boot' button is connected to GPIO 0 which is a strap pin,
+    // pulled high. When pressed, it goes low.
     boot-button.wait-for 0
     remote.mute
     boot-button.wait-for 1

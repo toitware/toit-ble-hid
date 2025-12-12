@@ -48,6 +48,8 @@ import gpio
 main:
   pin := gpio.Pin 0 --input
   control := ble-hid.ConsumerControl
+  // The 'boot' button is connected to GPIO 0 which is a strap pin,
+  // pulled high. When pressed, it goes low.
   pin.wait-for 0
   control.volume-up
 ```
@@ -178,7 +180,7 @@ abstract class HidDevice:
   /**
   Closes this device.
   */
-  close:
+  close -> none:
     critical-do:
       if peripheral_:
         peripheral_.close
